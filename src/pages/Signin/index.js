@@ -11,12 +11,12 @@ const Signin = () => {
     const { signin } = useAuth();
     const navigate = useNavigate();
 
-    const handleLogin = () => {
+    const handleLogin = async () => {
         if (!email | !senha) {
             setError("Preeencha todos os campos");
             return;
         }
-        const res = signin(email, senha);
+        const res = await signin(email, senha);
 
         if (res) {
             setError(res);
